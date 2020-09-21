@@ -1,0 +1,28 @@
+﻿@model List<CO3708.Models.Post>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<p><h1>Blog Posts</h1></p>
+
+@foreach (var post in Model)
+{
+    <div class="row">
+        <div class="col-md-4">
+            <h2>@post.title</h2>
+            <p>@post.date</p>
+            <p>
+                @post.body
+            </p>
+            @if (Session["userID"] != null)
+            {
+                if ((int)Session["admin"] == 1 || (int)Session["userID"] == post.author)
+                {
+                    <p><a class="btn btn-default" href="/Home/EditPost?id=@post.Id">Edit Post</a> <a class="btn btn-default" href="/Home/DeletePost?id=@post.Id">Delete Post</a></p>
+                }
+            }
+        </div>
+    </div>
+    <p></p>
+}

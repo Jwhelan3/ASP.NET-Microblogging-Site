@@ -1,0 +1,19 @@
+﻿@model List<CO3708.Models.User>
+
+@{
+    ViewBag.Title = "User Management";
+}
+
+<p><h1>Blog Posts</h1></p>
+
+@foreach (var user in Model)
+{
+    <div class="row">
+        <div class="col-md-4">
+            <h2>@user.email</h2>
+            <p>User ID: @user.Id</p>
+            <p><a class="btn btn-default" href="/User/DeleteUser?id=@user.Id">Delete User</a></p>
+        </div>
+    </div>
+    <p></p>
+}

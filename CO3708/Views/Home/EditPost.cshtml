@@ -1,0 +1,33 @@
+﻿@model CO3708.Models.Post
+@{
+    ViewBag.Title = "Edit a Post";
+}
+
+<!DOCTYPE html>
+
+<h2>Register</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        <fieldset>
+            <legend>Edit Post</legend>
+            <div class="editor-label">
+                @Html.LabelFor(p => p.title)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(p => p.title)
+                @Html.ValidationMessageFor(p => p.title)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(p => p.body)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(p => p.body)
+                @Html.ValidationMessageFor(p => p.body)
+            </div>
+
+            <input type="submit" value="Edit Post" />
+        </fieldset>
+        <div>@ViewBag.Message</div>
+    </div>
+}
